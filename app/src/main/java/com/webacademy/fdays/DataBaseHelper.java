@@ -6,17 +6,19 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by Андрей  Безручко on 17.02.2016.
- */
+import java.util.ArrayList;
+
 public class DataBaseHelper extends SQLiteOpenHelper {
 
-
     private SQLiteDatabase db;
+    private Cursor eventCursor;
+    private Event event;
+
     public static final String TABLE_NAME = "EventStorage";
     public static final String DATE_COLUMN = "date";
     public static final String TITLE_COLUMN = "title";
     public static final String TEXT_COLUMN = "text";
+
 
     public DataBaseHelper(Context context) {
         super(context, TABLE_NAME + ".db", null, 1);
@@ -30,15 +32,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 + TEXT_COLUMN + " TEXT NOT NULL );");
     }
 
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        //TODO
     }
 
-    public long saveEvent(Event event){
+    public long saveEvent(Event event) {
         db = getWritableDatabase();
-
         long date = event.getDate();
 
         try {
@@ -47,35 +47,82 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             contentValues.put(DataBaseHelper.TITLE_COLUMN, event.getTitle());
             contentValues.put(DataBaseHelper.TEXT_COLUMN, event.getText());
 
-            db.insert(DataBaseHelper.TABLE_NAME, null,contentValues);
-        }catch (Exception e){
+            db.insert(DataBaseHelper.TABLE_NAME, null, contentValues);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return date;
     }
 
-    public Event getEvent(long date){
-        Cursor eventCursor= null;
-        Event event = null;
+    public int deleteEvent(long date) {
 
-    try {
-        eventCursor = db.query(TABLE_NAME,
-                new String[]{TITLE_COLUMN, TEXT_COLUMN},
-                DATE_COLUMN + "=" + date,
-                null, null, null, null);
-        if (eventCursor.moveToFirst()) {
-            event = new Event();
-            event.setTitle(eventCursor.getString(eventCursor.getColumnIndex(TITLE_COLUMN)));
-            event.setText(eventCursor.getString(eventCursor.getColumnIndex(TEXT_COLUMN)));
-            event.setDate(date);
+        int countOfChanges = 0;//TODO
+
+        db = getWritableDatabase();
+        try {
+            db.delete(TABLE_NAME, DATE_COLUMN + "=" + date, null);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    } catch (Exception e){
-        e.printStackTrace();
-    }finally {
-        if(eventCursor != null){
-            eventCursor.close();
-        }
+
+        return countOfChanges;
     }
+
+    public ArrayList<Event> getAllEvents() {
+        eventCursor = null;
+        event = null;
+        ArrayList<Event> eventArrayList = new ArrayList<>();
+
+
+        try {
+            eventCursor = db.query(TABLE_NAME, null, null, null, null, null, null);
+
+            eventCursor.moveToFirst();
+            while (! eventCursor.isAfterLast()) {
+                event = new Event();
+
+                event.setTitle(eventCursor.getString(eventCursor.getColumnIndex(TITLE_COLUMN)));
+                event.setText(eventCursor.getString(eventCursor.getColumnIndex(TEXT_COLUMN)));
+                event.setDate(eventCursor.getLong(eventCursor.getColumnIndex(DATE_COLUMN)));
+
+                eventArrayList.add(event);
+                eventCursor.moveToNext();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (eventCursor != null) {
+                eventCursor.close();
+            }
+        }
+
+        return eventArrayList;
+    }
+
+    public Event getEvent(long date) {
+        eventCursor = null;
+        event = null;
+
+        try {
+            eventCursor = db.query(TABLE_NAME,
+                    new String[]{TITLE_COLUMN, TEXT_COLUMN},
+                    DATE_COLUMN + "=" + date,
+                    null, null, null, null);
+            if (eventCursor.moveToFirst()) {
+                event = new Event();
+                event.setTitle(eventCursor.getString(eventCursor.getColumnIndex(TITLE_COLUMN)));
+                event.setText(eventCursor.getString(eventCursor.getColumnIndex(TEXT_COLUMN)));
+                event.setDate(date);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (eventCursor != null) {
+                eventCursor.close();
+            }
+        }
         return event;
     }
+
+
 }
