@@ -14,6 +14,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private Cursor eventCursor;
     private Event event;
 
+    public static final String ID_COLUMN = "_id";
     public static final String TABLE_NAME = "EventStorage";
     public static final String DATE_COLUMN = "date";
     public static final String TITLE_COLUMN = "title";
@@ -27,6 +28,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME + "("
+                + ID_COLUMN + " INTEGER , "
                 + DATE_COLUMN + " INTEGER PRIMARY KEY NOT NULL, "
                 + TITLE_COLUMN + " TEXT NOT NULL, "
                 + TEXT_COLUMN + " TEXT NOT NULL );");
@@ -39,7 +41,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public long saveEvent(Event event) {
         db = getWritableDatabase();
-        long date = event.getDate();
+
+        //TODO
+        long id = 0;
 
         try {
             ContentValues contentValues = new ContentValues();
@@ -51,7 +55,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return date;
+        return id;
     }
 
     public int deleteEvent(long date) {
@@ -104,7 +108,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         event = null;
 
         try {
-            eventCursor = db.query(TABLE_NAME,
+            eventCursor = db.query(
+                    TABLE_NAME,
                     new String[]{TITLE_COLUMN, TEXT_COLUMN},
                     DATE_COLUMN + "=" + date,
                     null, null, null, null);

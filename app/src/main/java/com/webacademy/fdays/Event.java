@@ -1,9 +1,8 @@
 package com.webacademy.fdays;
 
-/**
- * Created by Андрей  Безручко on 18.02.2016.
- */
+
 public class Event {
+    private long id;
     private long date;
     private String title;
     private String text;
@@ -15,6 +14,14 @@ public class Event {
     }
 
     public Event() {};
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public long getDate() {
         return date;
