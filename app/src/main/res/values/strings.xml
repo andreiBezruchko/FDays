@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FDays</string>
-    <string name="goodDay">Хороший день</string>
-    <string name="badDay">Плохой день</string>
-    <string name="calendar">Календарь</string>
-    <string name="targets">Цели</string>
+    <string name="goodDay">Good Day</string>
+    <string name="badDay">Bad Day</string>
+    <string name="calendar">Calendar</string>
+    <string name="targets">Targets</string>
 </resources>

@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         adapterViewPager = new CustomPagerAdapter.MyPagerAdapter(getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         vpPager.getCurrentItem();
+        vpPager.setCurrentItem(1);
 
 
         vpPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
