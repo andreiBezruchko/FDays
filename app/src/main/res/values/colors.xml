@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00BBD3</color>
+    <color name="colorPrimary">#00DD72</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#F3004A</color>
+    <color name="colorPagerTabStrip">#FFFFFF</color>
 </resources>
