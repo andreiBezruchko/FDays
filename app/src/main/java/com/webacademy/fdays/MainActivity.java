@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         vpPager.getCurrentItem();
         vpPager.setCurrentItem(1);
 
-
         vpPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             // This method will be invoked when a new page becomes selected.

@@ -4,10 +4,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 
+import com.webacademy.fdays.Fragments.ButtonsFragment;
+import com.webacademy.fdays.Fragments.CalendarFragment;
+import com.webacademy.fdays.Fragments.TargetsFragment;
+
 /**
  * Created by DSharov on 18.02.16.
  */
 public class CustomPagerAdapter extends AppCompatActivity {
+
     public static final String GOOD_BAD_DAY = "My Day";
     public static final String TARGETS = "Targets";
     public static final String CALENDAR = "Calendar";
