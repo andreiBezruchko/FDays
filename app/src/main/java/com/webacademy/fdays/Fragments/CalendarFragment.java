@@ -1,21 +1,15 @@
-package com.webacademy.fdays;
+package com.webacademy.fdays.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.CalendarView;
+import android.widget.Toast;
 
+import com.webacademy.fdays.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link CalendarFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link CalendarFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CalendarFragment extends Fragment {
 
     private String title;
@@ -46,8 +40,16 @@ public class CalendarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar,container,false);
-        TextView textButtons = (TextView) view.findViewById(R.id.textButtons);
-        textButtons.setText("В этот фрагмент выводим календарь");
+
+        CalendarView calendarView = (CalendarView) view.findViewById(R.id.calendarView);
+        calendarView.setShowWeekNumber(false);
+        calendarView.setHorizontalScrollBarEnabled(true);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                Toast.makeText(getContext(), "Hello", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }

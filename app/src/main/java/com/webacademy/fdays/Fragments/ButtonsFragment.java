@@ -1,4 +1,4 @@
-package com.webacademy.fdays;
+package com.webacademy.fdays.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,21 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.webacademy.fdays.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ButtonsFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ButtonsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class ButtonsFragment extends Fragment {
 
     private String title;
     private int page;
-
-
 
     public static ButtonsFragment newInstance(int page, String title) {
         ButtonsFragment fragmentButton = new ButtonsFragment();
