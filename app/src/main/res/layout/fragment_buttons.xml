@@ -1,28 +1,39 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:corners="http://schemas.android.com/apk/res-auto"
-    tools:context="com.fdays.team1.fdays.ButtonsFragment">
+    tools:context="com.fdays.team1.fdays.ButtonsFragment"
+    android:orientation="vertical">
 
 
     <Button
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:text="New Button"
-        android:id="@+id/buttonGodDay"
-        android:layout_marginStart="63dp"
-        android:layout_marginBottom="93dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Today is GOOD day"
+        android:id="@+id/buttonGoodDay"
+        android:layout_gravity="center_vertical"
+        android:background="@color/colorAccent"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp" />
 
     <Button
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:text="New Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Today is BAD day"
         android:id="@+id/buttonBadDay"
-        android:layout_marginLeft="50dp"
-        android:layout_alignTop="@+id/buttonGodDay"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="67dp" />
-</RelativeLayout>
+        android:layout_gravity="center_vertical"
+        android:background="@color/colorAccent"
+        android:layout_above="@+id/buttonGoodDay"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="30dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.webacademy.fdays.R;
 
@@ -36,6 +37,9 @@ public class ButtonsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_buttons,container,false);
+
+        Button buttonGoodDay = (Button) view.findViewById(R.id.buttonGoodDay);
+        Button buttonBadDay = (Button) view.findViewById(R.id.buttonBadDay);
 
         return view;
     }
