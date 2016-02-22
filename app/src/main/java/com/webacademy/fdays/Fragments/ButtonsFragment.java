@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.webacademy.fdays.R;
 
@@ -37,8 +36,6 @@ public class ButtonsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_buttons,container,false);
-        TextView lable = (TextView) view.findViewById(R.id.lable);
-        lable.setText("В этот фрагмент выводим кнопки");
 
         return view;
     }

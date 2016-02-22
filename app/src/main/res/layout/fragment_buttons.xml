@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,38 +6,23 @@
     tools:context="com.fdays.team1.fdays.ButtonsFragment">
 
 
-    <TextView
-        android:id="@+id/lable"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Кнопки" />
+    <Button
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:text="New Button"
+        android:id="@+id/buttonGodDay"
+        android:layout_marginStart="63dp"
+        android:layout_marginBottom="93dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:text="@string/badDay"
-            android:id="@+id/button"
-            android:layout_marginBottom="65dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/button2"
-            android:background="#FF8B00" />
-
-        <Button
-            android:textStyle="bold"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:text="@string/goodDay"
-            android:id="@+id/button2"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:background="#FF8B00"
-            />
-
-    </RelativeLayout>
-
-</FrameLayout>
+    <Button
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:text="New Button"
+        android:id="@+id/buttonBadDay"
+        android:layout_marginLeft="50dp"
+        android:layout_alignTop="@+id/buttonGodDay"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="67dp" />
+</RelativeLayout>
