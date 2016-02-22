@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#E040FB</color>
-    <color name="colorPagerTabStrip">#B6B6B6</color>
-    <color name="colorPrimaryText">#C5CAE9</color>
+    <color name="colorPrimary">#00DD72</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#F3004A</color>
+    <color name="colorPagerTabStrip">#FFFFFF</color>
+    <color name="colorPrimaryText">#FFFFFF</color>
     <color name="colorSecondaryText">#212121</color>
 
 </resources>
