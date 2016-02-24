@@ -37,7 +37,7 @@
         android:linksClickable="false"
         android:ellipsize="middle"
         android:padding="10sp"
-        android:textAlignment="gravity"
+        android:textAlignment="textStart"
         android:textIsSelectable="false"
         android:text="@string/eventCreatorDescription"
         android:layout_below="@+id/editTextEventTitle"
@@ -51,8 +51,6 @@
         android:id="@+id/buttonSaveEvent"
         android:layout_gravity="center_vertical"
         android:background="@color/colorAccent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_below="@+id/buttonChooseDate"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
@@ -65,11 +63,10 @@
         android:id="@+id/buttonChooseDate"
         android:layout_gravity="center_vertical"
         android:background="@color/colorAccent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_below="@+id/editTextEventDescribe"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
