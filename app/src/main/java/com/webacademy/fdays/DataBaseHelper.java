@@ -1,11 +1,14 @@
 package com.webacademy.fdays;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.webacademy.fdays.Event.Event;
+
+import java.util.ArrayList;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
@@ -40,7 +43,77 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         //TODO
     }
 
+    public Event getEvent(long date){
+        SQLiteDatabase db = getWritableDatabase();
+        Event event = null;
+        Cursor cursor = null;
 
+        try{
+            cursor = db.query(TABLE_NAME,null,DATE_COLUMN + "=" + String.valueOf(date),null,null,null,null);
+            if(cursor.moveToFirst()){
+
+                event = new Event();
+
+
+                event.Id = cursor.getLong(cursor.getColumnIndex(ID_COLUMN));
+                event.Date = cursor.getLong(cursor.getColumnIndex(DATE_COLUMN));
+                event.Title = cursor.getString(cursor.getColumnIndex(TITLE_COLUMN));
+                event.Text = cursor.getString(cursor.getColumnIndex(TEXT_COLUMN));
+            }
+        }catch (Exception e ){
+            e.printStackTrace();
+        }finally {
+            if(cursor !=null){
+                cursor.close();
+            }
+        }
+
+        return event;
+    }
+
+
+    public ArrayList<Event> getEvent(){
+        SQLiteDatabase db = getWritableDatabase();
+        ArrayList<Event> events = new ArrayList<>();
+        Event event = null;
+        Cursor cursor = null;
+
+        try{
+            cursor = db.query(TABLE_NAME,null,null,null,null,null,null);
+            if(cursor.moveToFirst()){
+                while (!cursor.isAfterLast()){
+                    event = new Event();
+                    event.Id = cursor.getLong(cursor.getColumnIndex(ID_COLUMN));
+                    event.Date = cursor.getLong(cursor.getColumnIndex(DATE_COLUMN));
+                    event.Title = cursor.getString(cursor.getColumnIndex(TITLE_COLUMN));
+                    event.Text = cursor.getString(cursor.getColumnIndex(TEXT_COLUMN));
+                    events.add(event);
+                }}
+        }catch (Exception e ){
+            e.printStackTrace();
+        }finally {
+            if(cursor !=null){
+                cursor.close();
+            }
+        }
+
+        return events;
+    }
+    public long saveStudent(Event event){
+        SQLiteDatabase db = getWritableDatabase();
+        long date = 0;
+        try{
+            ContentValues values = new ContentValues();
+            values.put(DATE_COLUMN,event.Date);
+            values.put(TITLE_COLUMN,event.Title);
+            values.put(TEXT_COLUMN,event.Text);
+            date = db.insert(TABLE_NAME,null,values);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }return date;
+    }
 
 
 }
