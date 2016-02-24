@@ -16,7 +16,9 @@
         android:background="@color/colorAccent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -27,13 +29,8 @@
         android:background="@color/colorAccent"
         android:layout_above="@+id/buttonGoodDay"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="30dp" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/imageView"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
 
     </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.webacademy.fdays;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -7,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.webacademy.fdays.Event.EventCreator;
 
 public class MainActivity extends AppCompatActivity {
     FragmentPagerAdapter adapterViewPager;
@@ -19,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Toast.makeText(this,"Add", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, EventCreator.class);
+        startActivity(intent);
         return true;
     }
 

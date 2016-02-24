@@ -1,4 +1,4 @@
-package com.webacademy.fdays;
+package com.webacademy.fdays.Event;
 
 
 public class Event {
