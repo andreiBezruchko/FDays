@@ -4,7 +4,7 @@
     <string name="badDay">Bad Day</string>
     <string name="calendar">Calendar</string>
     <string name="targets">Targets</string>
-    <string name="addAction">Add action</string>
+    <string name="addAction">Add event</string>
     <string name="eventCreatorTitle">Enter title</string>
     <string name="eventCreatorDescription">Describe your event</string>
     <string name="chooseDateButton">Choose date</string>
