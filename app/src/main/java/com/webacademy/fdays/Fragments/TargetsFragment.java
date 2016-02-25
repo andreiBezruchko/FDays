@@ -66,6 +66,7 @@ public class TargetsFragment extends Fragment {
 
         listView.setAdapter(simpleCursorAdapter);
 
+
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, final long id) {
@@ -101,6 +102,5 @@ public class TargetsFragment extends Fragment {
 
         return view;
     }
-
 
 }
