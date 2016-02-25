@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="ALL EVENTS"
-        android:id="@+id/textView2"
+        android:id="@+id/textViewTargets"
         android:layout_weight="5.38"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -18,7 +18,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:background="@color/colorBackground"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:clickable="true" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -28,9 +29,9 @@
         android:background="@color/colorBackground"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:layout_below="@+id/textViewTargets"
+        android:layout_marginTop="30dp" />
 
 </RelativeLayout>
