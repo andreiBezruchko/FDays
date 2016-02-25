@@ -73,6 +73,7 @@ public class EventCreator extends AppCompatActivity {
 
                 if(time == 0){
                     Toast.makeText(this,"Вы не указали дату", Toast.LENGTH_SHORT).show();
+                    break;
                 }
 
                 Event event = new Event(time, title, description, checked);
@@ -87,6 +88,8 @@ public class EventCreator extends AppCompatActivity {
             case R.id.buttonChooseDate:
                 createTimePicker();
                 break;
+
+
         }
     }
 

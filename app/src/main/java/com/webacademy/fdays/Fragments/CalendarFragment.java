@@ -42,7 +42,7 @@ public class CalendarFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_calendar,container,false);
 
         CalendarView calendarView = (CalendarView) view.findViewById(R.id.calendarView);
-        calendarView.setShowWeekNumber(false);
+        calendarView.setShowWeekNumber(true);
         calendarView.setHorizontalScrollBarEnabled(true);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
