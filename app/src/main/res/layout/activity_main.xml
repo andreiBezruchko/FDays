@@ -4,8 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:showDividers="beginning|none">
-
+    android:scrollbars="horizontal"
+    android:scrollbarAlwaysDrawHorizontalTrack="true"
+    android:scrollIndicators="bottom"
+    android:verticalScrollbarPosition="defaultPosition"
+    android:isScrollContainer="true"
+    android:overScrollMode="always">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
